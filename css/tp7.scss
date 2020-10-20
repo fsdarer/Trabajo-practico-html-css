@@ -1,0 +1,405 @@
+$color-general: greenyellow;
+$color-texto-card: rgba(0, 0, 0, 0.849);
+$color-general-2: black;
+$color-general-3: rgb(39,39,39);
+$fuente-general: Verdana, Geneva, Tahoma, sans-serif;
+
+@mixin centrar ($direction) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+}
+@mixin centrar_2 ($content) {
+    display: flex;
+    flex-direction: row;
+    justify-content: $content;
+    align-items: center;
+}
+@mixin hvr_menu_burgr_crd {
+    -webkit-box-shadow: 0px 2px 27px 6px rgba(128,124,128,1);
+        -moz-box-shadow: 0px 2px 27px 6px rgba(128,124,128,1);
+            box-shadow: 0px 2px 27px 6px rgba(128,124,128,1);
+}
+@mixin menu_shadow {
+    -webkit-box-shadow: 4px 4px 5px 0px rgba(150,150,150,1);
+        -moz-box-shadow: 4px 4px 5px 0px rgba(150,150,150,1);
+            box-shadow: 4px 4px 5px 0px rgba(150,150,150,1);
+}
+@mixin card_shadow {
+    -webkit-box-shadow: 10px 10px 31px 2px rgba(10,10,10,1);
+        -moz-box-shadow: 10px 10px 31px 2px rgba(10,10,10,1);
+            box-shadow: 10px 10px 31px 2px rgba(10,10,10,1);
+}
+@mixin menu_hover {
+    border-radius: 70px;
+    transition: 0.2s;
+    background-color: rgba(128, 124, 128, 0.548);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: $color-general-3;
+    background-image: url(../images/fondo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100em;
+    margin-left: 0;
+    margin-right: 0;
+}
+.logoFondo {
+    @include centrar(row);
+    position: absolute; 
+}
+.up {
+    border-radius: 50%;
+    background-color: $color-general;
+    border: 2px solid $color-general-2;
+    width: 30px;
+    height: 30px;
+    @include centrar(row);
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    img {
+        width: 30px;
+    }    
+}
+  
+.burguer {
+    position: relative;
+    top: 3px;
+    left: 10px;
+    width: 50px;
+    transition: width 0.5ms; opacity: 0.8ms;
+    font-size: xx-large;
+    z-index: 2;
+    i {
+        margin-left: -1330px;
+        color: $color-general;
+        margin-bottom: 10px;
+    }
+}
+.burguer i:hover {
+    border-radius: 70px;
+    background-color: rgba(128, 124, 128, 0.550);
+    transition: 0.3s;
+    @include hvr_menu_burgr_crd();   
+}
+#menu {
+    transition: width 5ms;
+    margin-left: 10px;
+    position: absolute;
+    top: 150px;
+    background-color: $color-general;
+    width: 220px;
+    height: 240px;
+    display: none;
+    a {
+        color: $color-general-3;
+        margin: 10px;
+        font-family: $fuente-general;
+        font-weight: 599;
+    }
+}
+#menu li:hover {
+    background-color: rgb(226, 248, 153);
+    height: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    transition: 1s;
+}
+
+#menu:target {
+    display: block;
+    margin-top: 0;
+    padding: 0;
+    position: absolute;
+    top: 0px;
+    left: -1px;
+    z-index: 3;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.192);
+    @include menu_shadow();
+    a {
+        color: $color-general-3;
+    }
+    li {
+        border-bottom: 3px solid rgba(0, 0, 0, 0.192);
+        margin: -10px;
+        padding: 5px;
+        width: 180px;
+    }
+}
+
+menu {
+    top: 10px;
+    i {
+        margin-left: 1px;
+        margin-top: 10px;
+        font-size: xx-large;
+        }
+}
+
+header {
+    @include centrar_2(flex-end);
+    height: 10px;
+    padding: 20px 80px 20px 20px;
+    margin: 0;
+    background-color: $color-general-2;
+    color: $color-general;
+    li {
+        list-style: none;
+    }
+    img {
+        height: 50px;
+    }
+}
+
+.menu-principal {
+    @include centrar_2(space-between);
+    width: 400px;
+    font-family: $fuente-general;
+    .menu1 {
+        margin-left: -35px;
+    }
+    .menu2 {
+        margin-left: 27px;
+    }
+    .menu3 {
+        margin-right: -33px;
+    }
+}
+.menu1:hover {
+    @include menu_hover();
+    @include hvr_menu_burgr_crd();
+}
+.menu2:hover {
+    @include menu_hover();
+    @include hvr_menu_burgr_crd();
+}
+.menu3:hover {
+    @include menu_hover();
+    @include hvr_menu_burgr_crd();  
+}
+
+.menu-interior {
+    visibility: hidden;
+    padding: 0;
+    position: absolute;
+    background-color: $color-general;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.192);
+    color: $color-general-2;
+    width: 160px;
+    margin-right: -33;
+    @include menu_shadow();
+            li {
+                padding: 5px;
+                border-bottom: 3px solid rgba(0, 0, 0, 0.192);
+            }
+}
+
+.menu-interior li:hover {
+    background-color: rgb(226, 248, 153);
+    height: 20px;
+    margin-bottom: 3px;
+    margin-top: 3px;
+    transition: 0.5s;
+}
+
+.menu-principal li:hover .menu-interior {
+    visibility: visible;
+} 
+
+main {
+    height: 500px;
+    background-image: url(..//images/bkgrnd.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    @include centrar(column);  
+    p {
+        font-weight: bolder;
+        color: $color-general;
+        border: 3px solid rgba(0, 0, 0, 0.335);
+        font-family: $fuente-general;
+        background-color: $color-general-2;
+        opacity: 60%;
+        border-radius: 7px;
+        margin-top: 160px; 
+    }
+}
+
+section {
+    @include centrar_2(space-around);
+    position: relative;
+    top: 287px;
+}
+
+.card {
+    @include centrar(column); 
+    font-family: $fuente-general;
+    background-color: rgba(255, 255, 255, 0.103);
+    margin-left: 40px;
+    margin-right: 40px;
+    width: 200px;
+    transition: 0.5s;
+    @include card_shadow();
+    h2 {
+        background-color: rgba(128, 128, 128, 0);
+        border-radius: 10px;
+        color: rgb(161, 161, 161);
+        @include card_shadow();
+    }        
+    p {
+        margin-left: 10px;
+        margin-top: 1px;
+        color: $color-general;
+        font-weight: 599;
+    }
+    img {
+        width: 200px;
+    }
+}
+
+.card:hover {
+    @include hvr_menu_burgr_crd(); 
+}
+
+footer {
+    background-color: $color-general-2;
+    height: 250px;
+    margin-top: 100px;
+    color: $color-general;
+    font-size: 1em;
+    @include centrar(column); 
+    position: relative;
+    bottom: -507px;
+    z-index: 100;
+    font-family: $fuente-general;
+    p {
+        color: rgba(128, 128, 128, 0.363);
+        font-size: smaller;
+        @include centrar(row);
+        margin-top: 33px;
+    }
+    i {
+        font-size: 3em;
+        color: $color-general;
+        margin: 4px;
+    }
+}
+
+a:link, a:visited, a:active {
+    text-decoration: none;
+}   
+
+@media (max-width: 450px){
+    .container {
+        display: grid;
+        grid-template-rows: 0.5fr 0.5fr 0.5fr 1fr;
+        grid-template-areas: 
+        'header'
+        'main'
+        'section'
+        'footer';
+    }
+    body {
+        height: 60em;
+        overflow-x: hidden;
+    }
+    .up {
+        display: none;
+    }
+    .menu-principal {
+        display: none;
+    }
+    main {
+        height: 200px;
+        width: 414px;
+        p {
+            width: 405px;
+            margin-top: 0;
+        }
+    }
+    .logoFondo {
+        display: none;
+    }
+    header {
+        width: 314px;
+        .burguer {
+            margin-left: -120px;
+            i {
+                margin-left: -280px;
+            }
+        }
+    }
+    section {
+        width: 150px;
+        display: flex;
+        flex-direction: column;
+        margin-left: 135px;
+        margin-top: -250px;
+        margin-bottom: -130px;
+        img {
+            height: 90px;
+        }
+        p {
+            display: none;
+        }
+    }
+    footer {
+        width: 414px;
+        margin: 0;
+        p {
+            margin-left: 70px;
+        }
+    }
+}
+@media (max-width: 768px){
+    header {
+        .burguer {
+            i {
+                margin-left: -190px;
+            }
+        }
+    }
+}
+@media (max-width: 375px){
+    body {
+        overflow-x: hidden;
+        width: 375px;
+    }
+    header {
+        width: 275px;
+        .burguer {
+            margin-left: -120px;
+            i {
+                margin-left: -240px;
+            }
+        }
+    }
+    main {
+        height: 200px;
+        width: 375px;
+        p {
+            width: 370px;
+            margin-top: 0;
+        }
+    }
+    section {
+        margin-left: 115px;
+        margin-top: -240px;
+        margin-bottom: -150px;
+        p {
+            width: 375px;
+        }
+    }
+    footer {
+        width: 375px;
+        p{
+            margin-left: 52px;
+        }
+    }
+}
